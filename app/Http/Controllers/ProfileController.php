@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProfileController extends Controller
 {
@@ -26,10 +28,21 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+        
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
+        }
+        if ($request->hasFile('profile_image')) {
+            // get current image path and replace the storage path with public path
+            $currentImage = str_replace('/storage', '/public', $request->user()->profile_image);
+            // delete current image
+            Storage::delete($currentImage);
+
+            $file = Storage::disk('public')->put('images/profile/profile-images', request()->file('profile_image'), 'public');
+            $path = Storage::url($file);
+            $request->user()['profile_image'] = $path;
         }
 
         $request->user()->save();
@@ -47,6 +60,9 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
+
+        $currentImage = str_replace('/storage', '/public', $user->profile_image);
+        Storage::delete($currentImage);
 
         Auth::logout();
 
