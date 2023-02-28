@@ -14,5 +14,12 @@ class UserController extends Controller
             'users' => User::orderBy('year', 'desc')->paginate(4),
         ]);
     }
+
+    public function friends(): Response 
+    {
+        return response()->view('users.friends', [
+            'users' => User::where('year', auth()->user()->year)->paginate(4),
+        ]);
+    }
  
 }

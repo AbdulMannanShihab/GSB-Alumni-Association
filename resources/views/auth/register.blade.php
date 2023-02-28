@@ -21,20 +21,20 @@
             <x-input-label for="mobile" :value="__('Mobile Number')" />
 
             <x-text-input id="mobile" class="block mt-1 w-full"
-                            type="number"
+                            type="tel"
                             name="mobile"
                             required />
 
             <x-input-error :messages="$errors->get('mobile')" class="mt-2" />
         </div>
 
-         <!-- Mobile -->
-         <div class="mt-4">
+        <!-- Year -->
+        <div class="mt-4">
             <x-input-label for="year" :value="__('Passing Year')" />
 
             <x-text-input id="year" class="block mt-1 w-full"
                             type="date"
-                            name="year"
+                            name="year" min="1930" max="2023"
                             required />
 
             <x-input-error :messages="$errors->get('year')" class="mt-2" />

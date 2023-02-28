@@ -41,8 +41,12 @@
                             {{ __('Profile') }}
                         </x-dropdown-link>
                         <x-dropdown-link :href="route('users.index')">
-                            {{ __('Friends') }}
+                            {{ __('All User') }}
                         </x-dropdown-link>
+                        <x-dropdown-link :href="route('users.friends')">
+                            {{ __('friends') }}
+                        </x-dropdown-link>
+                       
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">

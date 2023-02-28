@@ -19,7 +19,6 @@
         <div class="max-w-7xl mx-auto p-6 lg:p-8">
             @include('home.nav')
             @include('home.hero')
-            @include('home.member')
             @include('home.sponser')
         </div>
     </main>
