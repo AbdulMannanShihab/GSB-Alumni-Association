@@ -30,14 +30,15 @@
 
         <!-- Year -->
         <div class="mt-4">
-            <x-input-label for="year" :value="__('Passing Year')" />
-
-            <x-text-input id="year" class="block mt-1 w-full"
-                            type="date"
-                            name="year" min="1930" max="2023"
-                            required />
-
-            <x-input-error :messages="$errors->get('year')" class="mt-2" />
+            <x-input-label for="year" :value="__('Batch Year')" />
+            <select class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="year" data-component="date">
+                <option>Select Year</option>
+                @for ( $year=1930; $year<=date('Y'); $year++)
+                    <option value="{{ $year }}">
+                        {{ $year }}
+                    </option>
+                @endfor
+            </select>
         </div>
 
         <!-- Password -->

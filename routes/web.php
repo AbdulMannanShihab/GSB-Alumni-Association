@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RegMemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::middleware('auth')->group(function () {
@@ -29,13 +30,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // user
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::get('/friends', [UserController::class, 'friends'])->name('users.friends');
+    Route::resource('users', UserController::class);
+    
+    // Register Member
+   
+    Route::get('/friends', [RegMemberController::class, 'friends'])->name('reg-mem.friends');
+    Route::get('/dashboard', [RegMemberController::class, 'dashboard'])->name('dashboard');
     
 });
 
 
-// Route::resource('users', UserController::class);
+
 
 require __DIR__.'/auth.php';
