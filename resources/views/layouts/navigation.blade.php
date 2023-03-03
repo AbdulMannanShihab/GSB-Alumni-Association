@@ -38,7 +38,7 @@
                             {{ __('Profile') }}
                         </x-dropdown-link>
                         <x-dropdown-link :href="route('reg-mem.friends')">
-                            {{ __('friends') }}
+                            {{ __('Friends') }}
                         </x-dropdown-link>
                        
 
@@ -89,6 +89,9 @@
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('reg-mem.friends')">
+                    {{ __('Friends') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->

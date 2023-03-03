@@ -34,6 +34,8 @@ class ProfileController extends Controller
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+       
+        // image update
         if ($request->hasFile('profile_image')) {
             // get current image path and replace the storage path with public path
             $currentImage = str_replace('/storage', '/public', $request->user()->profile_image);
@@ -44,7 +46,7 @@ class ProfileController extends Controller
             $path = Storage::url($file);
             $request->user()['profile_image'] = $path;
         }
-
+        
         $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');

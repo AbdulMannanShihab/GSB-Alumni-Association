@@ -33,7 +33,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('users', UserController::class);
     
     // Register Member
-   
     Route::get('/friends', [RegMemberController::class, 'friends'])->name('reg-mem.friends');
     Route::get('/dashboard', [RegMemberController::class, 'dashboard'])->name('dashboard');
     

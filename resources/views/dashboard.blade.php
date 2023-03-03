@@ -5,6 +5,12 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 All Student Profile
             </h2>
+            <div class="">
+                <!-- all about audio embeded property -->
+                <audio controls loop autoplay preload="auto">
+                    <source src="{{asset('home')}}/mp3/School.mp3" type="audio/mp3">
+                </audio>
+            </div>
         </div>
     </x-slot>
     
@@ -18,13 +24,16 @@
                         <div class="h-40 w-100 bg-red-100 flex items-center justify-center rounded">
                             <img src="{{ asset($user->profile_image) }}" alt="{{ $user->name }}" class="h-40 w-100 rounded">
                         </div>
+                        <span class="mt-2 text-gray-500 text-sm mx-auto leading-relaxed">
+                            Batch : {{ $user->year }}
+                        </span>
                         <!-- user name -->
                         <h2 class="mt-6 text-xl font-semibold text-gray-900">
                             {{ $user->name }}
                         </h2>
                         <!-- User Bio -->
                         <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                            Batch : {{ $user->year }}
+                        {{ $user->bio }}
                         </p>
                     </div>
                 </div><!--/end  users-->

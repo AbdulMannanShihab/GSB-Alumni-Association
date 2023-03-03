@@ -16,13 +16,13 @@
     <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
-
+        <!-- name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
-
+        <!-- email -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
@@ -46,7 +46,13 @@
                 </div>
             @endif
         </div>
-
+        <!-- bio -->
+        <div>
+            <x-input-label for="bio" :value="__('Bio')" />
+            <x-textarea-input id="bio" name="bio" type="text" class="mt-1 block w-full" :value="old('bio', $user->bio)" required autofocus autocomplete="bio">{{ $user->bio }}</x-textarea-input>
+            <x-input-error class="mt-2" :messages="$errors->get('bio')" />
+        </div>
+        <!-- image -->
         <div>
             <x-input-label for="profile_image" value="Featured Image" />
             <label class="block mt-2">
