@@ -12,6 +12,7 @@
         @foreach ($users as $user)
             <!-- users -->
             <div class="scale-100 p-6 bg-white from-gray-700/50 via-transparent rounded-lg shadow-2xl shadow-gray-500/20 flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500 items-center justify-center">
+                <a href="{{ route('show', $user->id) }}">
                 <div>
                     <!-- Feature img -->
                     <div class="h-40 w-100 bg-red-100 flex items-center justify-center rounded">
@@ -26,9 +27,10 @@
                     </h2>
                     <!-- User Bio -->
                     <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                        {{ $user->bio }}
+                        {{  Str::limit($user -> bio, 50) }}
                     </p>
                 </div>
+                </a>
             </div><!--/end  users-->
         @endforeach
     </div>

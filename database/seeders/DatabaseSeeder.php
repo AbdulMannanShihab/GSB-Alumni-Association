@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
             'mobile' => '013 0000 0000',
         ]);
 
-        User::factory(2000)->create();
+        User::factory(500)->create();
     }
 }

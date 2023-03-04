@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
     // Register Member
     Route::get('/friends', [RegMemberController::class, 'friends'])->name('reg-mem.friends');
     Route::get('/dashboard', [RegMemberController::class, 'dashboard'])->name('dashboard');
+    Route::get('/show/{name}', [RegMemberController::class, 'show'])->name('show');
     
 });
 
