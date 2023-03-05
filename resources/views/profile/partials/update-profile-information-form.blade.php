@@ -49,7 +49,7 @@
         <!-- bio -->
         <div>
             <x-input-label for="bio" :value="__('Bio')" />
-            <x-textarea-input id="bio" name="bio" type="text" class="mt-1 block w-full" :value="old('bio', $user->bio)" required autofocus autocomplete="bio">{{ $user->bio }}</x-textarea-input>
+            <x-textarea-input id="bio" name="bio" type="text" class="mt-1 block w-full" :value="old('bio', $user->bio)" autofocus autocomplete="bio">{{ $user->bio }}</x-textarea-input>
             <x-input-error class="mt-2" :messages="$errors->get('bio')" />
         </div>
         <!-- image -->
