@@ -86,4 +86,14 @@
             @endif
         </div>
     </form>
+    <script>
+        // create onchange event listener for profile_image input
+        document.getElementById('profile_image').onchange = function(evt) {
+            const [file] = this.files
+            if (file) {
+                // if there is an image, create a preview in profile_image_preview
+                document.getElementById('profile_image_preview').src = URL.createObjectURL(file)
+            }
+        }
+    </script>
 </section>
