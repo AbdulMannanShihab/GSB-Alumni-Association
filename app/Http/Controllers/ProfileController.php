@@ -42,7 +42,7 @@ class ProfileController extends Controller
             // delete current image
             Storage::delete($currentImage);
 
-            $file = Storage::disk('public')->put('images/profile/profile-images', request()->file('profile_image'), 'public');
+            $file = Storage::disk('public')->put('images/profile', request()->file('profile_image'), 'public');
             $path = Storage::url($file);
             $request->user()['profile_image'] = $path;
         }

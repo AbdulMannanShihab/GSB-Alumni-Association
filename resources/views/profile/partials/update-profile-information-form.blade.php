@@ -54,7 +54,7 @@
         </div>
         <!-- image -->
         <div>
-            <x-input-label for="profile_image" value="Featured Image" />
+            <x-input-label for="profile_image" value="Profile Image" />
             <label class="block mt-2">
                 <span class="sr-only">Choose image</span>
                 <input type="file" id="profile_image" name="profile_image" class="block w-full text-sm text-slate-500
